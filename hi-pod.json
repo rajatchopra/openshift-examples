@@ -5,7 +5,8 @@
     "name": "hi-openshift",
     "creationTimestamp": null,
     "labels": {
-      "name": "hi-openshift"
+      "name": "hi-openshift",
+      "io.contiv.net-group": "web-group"
     }
   },
   "spec": {
