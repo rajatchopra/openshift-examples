@@ -1,0 +1,10 @@
+{
+    "kind": "Node",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "openshift-node-1"
+    },
+    "spec": {
+        "externalID": "openshift-node-1"
+    }
+}
