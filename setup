@@ -1,0 +1,2 @@
+export PATH=$PATH:/data/src/github.com/openshift/origin/_output/local/bin/linux/amd64
+export KUBECONFIG=/openshift.local.config/master/admin.kubeconfig

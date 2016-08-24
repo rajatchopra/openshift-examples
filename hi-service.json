@@ -1,0 +1,29 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hi",
+        "namespace": "default",
+        "labels": {
+            "name": "hi"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "web",
+                "protocol": "TCP",
+                "port": 5432,
+                "targetPort": 8080
+            }
+        ],
+        "selector": {
+            "name": "hi-openshift"
+        },
+        "type": "ClusterIP",
+        "sessionAffinity": "None"
+    },
+    "status": {
+        "loadBalancer": {}
+    }
+}
