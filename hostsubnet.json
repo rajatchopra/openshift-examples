@@ -2,11 +2,12 @@
     "kind": "HostSubnet",
     "apiVersion": "v1",
     "metadata": {
-        "name": "openshift_f5_node",
+        "name": "openshift-f5-node",
         "annotations": {
 		"hostsubnet.sdn.openshift.io/autocreate": "true"
         }
     },
-    "host": "openshift_f5_node",
-    "hostIP": "172.18.0.5"
+    "host": "openshift-f5-node",
+    "hostIP": "10.3.89.213",
+    "subnet": "10.130.0.0/23"
 }
