@@ -3,11 +3,6 @@
     "apiVersion": "v1",
     "metadata": {
         "name": "hello",
-        "namespace": "default",
-        "selfLink": "/api/v1/namespaces/default/services/hello",
-        "uid": "425d0349-0d8d-11e6-b898-080027242396",
-        "resourceVersion": "1535",
-        "creationTimestamp": "2016-04-28T22:05:03Z",
         "labels": {
             "name": "hello"
         }
