@@ -1,0 +1,22 @@
+{
+  "kind": "Route",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hi",
+    "creationTimestamp": null,
+    "annotations": {
+     }
+  },
+  "spec": {
+    "host": "www.hiexample.com",
+    "to": {
+      "kind": "Service",
+      "name": "hi"
+    },
+    "secondaryServices": [{
+      "kind": "Service",
+      "name": "hello"
+    }]
+  },
+  "status": {}
+}
