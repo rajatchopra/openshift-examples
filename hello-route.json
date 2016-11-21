@@ -11,11 +11,13 @@
     "host": "www.helloexample.com",
     "to": {
       "kind": "Service",
-      "name": "hello"
+      "name": "hello",
+      "weight": 80
     },
     "secondaryServices": [{
       "kind": "Service",
-      "name": "hi"
+      "name": "hi",
+      "weight": 20
     }]
   },
   "status": {}
