@@ -45,7 +45,7 @@ initcerts() {
     local name=${node_names[$i]}
     local ip=${node_ips[$i]}
     openshift admin create-node-config \
-      --node-dir="${server_config_dir}/node-${name}" \
+      --node-dir="${server_config_dir}/${name}" \
       --node="${name}" \
       --hostnames="${name},${ip}" \
       --master="https://${master_ip}:8443" \
