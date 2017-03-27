@@ -10,7 +10,7 @@ if [[ "${CONFIG_ROOT}" = "/" ]]; then
   CONFIG_ROOT=""
 fi
 
-NETWORK_PLUGIN="cni"
+NETWORK_PLUGIN=${NETWORK_PLUGIN:-cni}
 
 MASTER_NAME="${INSTANCE_PREFIX}-master"
 NODE_PREFIX="${INSTANCE_PREFIX}-node-"
@@ -39,6 +39,9 @@ initcerts() {
     --cert-dir="${cert_dir}" \
     --master="https://${master_ip}:8443" \
     --hostnames="${master_ip},${master_name}"
+
+  # master config file
+  openshift start master --write-config=${cert_dir} --network-plugin=${network_plugin}
 
   # Certs for nodes
   for (( i=0; i < ${#node_names[@]}; i++ )); do
