@@ -4,7 +4,8 @@
     "metadata": {
         "name": "openshift-f5-node",
         "annotations": {
-		"pod.network.openshift.io/assign-subnet": "true"
+		"pod.network.openshift.io/assign-subnet": "true",
+		"pod.network.openshift.io/fixed-vnid-host": "0"
         }
     },
     "host": "openshift-f5-node",
