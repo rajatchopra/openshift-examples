@@ -1,1 +1,0 @@
-oc delete dc/router services/router; docker build -t openshift/origin-haproxy-router:v3.2.1 .; oadm router --service-account=router --images=openshift/origin-haproxy-router:v3.2.1
