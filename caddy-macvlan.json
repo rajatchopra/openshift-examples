@@ -1,0 +1,31 @@
+{
+  "kind": "Pod",
+  "apiVersion":"v1",
+
+  "metadata": {
+        "name": "caddy-macvlan",
+        "labels": {
+                "name": "caddy-macvlan"
+        },
+	"annotations": {
+		"pod.network.openshift.io/assign-macvlan": "true"
+	}
+  },
+  "spec": {
+      "containers": [{
+        "name": "caddy-macvlan-pod",
+        "image": "aosqe/caddy-docker",
+        "ports": [
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 8443
+          }
+        ],
+	"securityContext": {
+		"privileged": true
+	}
+      }]
+  }
+}
