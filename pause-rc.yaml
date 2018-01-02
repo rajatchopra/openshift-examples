@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: pause-pod
+spec:
+  replicas: 3
+  selector:
+    app: pause-pod
+  template:
+    metadata:
+      name: pause-pod
+      labels:
+        app: pause-pod
+    spec:
+      containers:
+      - name: pause-pod
+        image: gcr.io/google_containers/pause
