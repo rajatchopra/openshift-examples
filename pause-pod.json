@@ -1,0 +1,17 @@
+{
+  "kind": "Pod",
+  "apiVersion":"v1",
+
+  "metadata": {
+        "name": "pause-pod",
+        "labels": {
+                "name": "pause-pod"
+        }
+  },
+  "spec": {
+      "containers": [{
+        "name": "pause-pod",
+        "image": "gcr.io/google_containers/pause"
+      }]
+  }
+}
