@@ -19,12 +19,7 @@
         "selector": {
             "name": "hello-openshift"
         },
-        "portalIP": "172.30.57.4",
-        "clusterIP": "172.30.57.4",
         "type": "ClusterIP",
         "sessionAffinity": "None"
-    },
-    "status": {
-        "loadBalancer": {}
     }
 }
