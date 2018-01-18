@@ -34,7 +34,7 @@ initcerts() {
   pushd "${config_root}" > /dev/null
 
   # Master certs
-  openshift admin ca create-master-certs \
+  oc adm ca create-master-certs \
     --overwrite=false \
     --cert-dir="${cert_dir}" \
     --master="https://${master_ip}:8443" \
@@ -47,7 +47,7 @@ initcerts() {
   for (( i=0; i < ${#node_names[@]}; i++ )); do
     local name=${node_names[$i]}
     local ip=${node_ips[$i]}
-    openshift admin create-node-config \
+    oc adm create-node-config \
       --node-dir="${server_config_dir}/${name}" \
       --node="${name}" \
       --hostnames="${name},${ip}" \

@@ -8,7 +8,7 @@
      }
   },
   "spec": {
-    "host": "www.helloexample.com",
+    "host": "www.helloedgeexample.com",
     "to": {
       "kind": "Service",
       "name": "hello"
