@@ -13,8 +13,14 @@
                 "name": "web",
                 "protocol": "TCP",
                 "port": 5432,
-                "targetPort": 8080
-            }
+                "targetPort": "auxweb" 
+            },
+	    {
+		"name": "web-alt",
+		"protocol": "TCP",
+		"port": 5431,
+		"targetPort": 8181
+	    }
         ],
         "selector": {
             "name": "hello-openshift"
