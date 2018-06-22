@@ -1,0 +1,25 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello",
+        "labels": {
+            "name": "hello"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "web",
+                "protocol": "TCP",
+                "port": 5432,
+                "targetPort": "auxweb" 
+            }
+	],
+        "selector": {
+            "name": "hello-openshift"
+        },
+        "type": "LoadBalancer",
+        "sessionAffinity": "None"
+    }
+}
