@@ -5,7 +5,7 @@ set -e
 install-tools() {
     yum -y install yum-utils
     yum-config-manager --enable rhui-REGION-rhel-server-extras
-    yum -y make install git docker gcc-c++ wget krb5-devel
+    yum -y install git docker gcc-c++ wget krb5-devel
     systemctl restart docker
     if (which go); then
 	echo "golang already installed"
@@ -46,6 +46,9 @@ setup-cluster() {
     cp -f ${dir}/bin/openshift-node.sh /usr/local/bin/ || echo
 }
 
+install-tools
+install-openshift
+setup-cluster
 systemctl daemon-reload
 systemctl start openshift-master
 systemctl start openshift-node
