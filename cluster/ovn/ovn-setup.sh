@@ -3,6 +3,8 @@
 set -e
 set -x
 
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
 install_ovn() {
     if (which ovs-vsctl); then
         echo "ovn already installed"
@@ -27,7 +29,7 @@ install_ovn_kubernetes() {
     if (which ovnkube); then
 		echo "ovnkube already installed"
     else
-		go get github.com/openvswitch/ovn-kubernetes
+		go get github.com/openvswitch/ovn-kubernetes || echo
 		cd ${GOPATH}/src/github.com/openvswitch/ovn-kubernetes
 		cd go-controller
 		make
@@ -41,7 +43,7 @@ install_ovn_kubernetes() {
 setup_ovn() {
     local config_dir=$1
     local kube_config="${config_dir}/admin.kubeconfig"
-    local dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+    local dir=${SCRIPTPATH}
 
     cp -f ${dir}/bin/ovn-kubernetes-master.service /etc/systemd/system/ovn-kubernetes-master.service || echo
     cp -f ${dir}/bin/ovn-kubernetes-node.service /etc/systemd/system/ovn-kubernetes-node.service || echo
