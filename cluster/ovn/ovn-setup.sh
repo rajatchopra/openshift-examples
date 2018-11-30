@@ -23,6 +23,21 @@ install_ovn() {
     systemctl start ovn-controller || echo
 }
 
+install_ovn_kubernetes() {
+    if (which ovnkube); then
+		echo "ovnkube already installed"
+    else
+		go get github.com/openvswitch/ovn-kubernetes
+		cd ${GOPATH}/src/github.com/openvswitch/ovn-kubernetes
+		cd go-controller
+		make
+		make install
+		ln -s /usr/bin/ovnkube /usr/local/bin/
+		mkdir -p /etc/cni/net.d
+		mkdir -p /opt/cni/bin
+	fi
+}
+
 setup_ovn() {
     local config_dir=$1
     local kube_config="${config_dir}/admin.kubeconfig"
@@ -56,6 +71,7 @@ ensure_token() {
 }
 
 install_ovn
+install_ovn_kubernetes
 setup_ovn /data/cluster/master
 ensure_token
 
