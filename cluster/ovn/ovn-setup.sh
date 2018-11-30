@@ -48,15 +48,17 @@ ensure_token() {
     local kube_config="${config_dir}/admin.kubeconfig"
     local token_file="${config_dir}/ovn.token"
 
-    /usr/local/bin/oc --config="${kube_config}" sa get-token ovn > ${token_file}
-    [[ -s "${token_file}" ]]
+    if [ ! -f ${token_file} ]; then
+	sleep 10
+	/usr/local/bin/oc --config="${kube_config}" sa get-token ovn > ${token_file}
+	[[ -s "${token_file}" ]]
+    fi
 }
 
 install_ovn
 setup_ovn /data/cluster/master
-sleep 10
 ensure_token
 
-
+systemctl daemon-reload
 systemctl start ovn-kubernetes-master
 systemctl start ovn-kubernetes-node

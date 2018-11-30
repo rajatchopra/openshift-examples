@@ -58,5 +58,6 @@ EOF
         --init-gateways
 }
 
-ovn-kubernetes-node /data/cluster/node /data/cluster/master
+host=$(hostname)
+ovn-kubernetes-node /data/cluster/${host} /data/cluster/master
 
