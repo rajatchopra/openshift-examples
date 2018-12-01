@@ -2,6 +2,8 @@
 
 set -e
 
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
 install-tools() {
     yum -y install yum-utils
     yum-config-manager --enable rhui-REGION-rhel-server-extras
@@ -35,7 +37,7 @@ install-openshift() {
 }
 
 setup-cluster() {
-    local dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+    local dir=${SCRIPTPATH}
     systemctl stop openshift-master || echo
     systemctl stop openshift-node || echo
     rm -rf /data

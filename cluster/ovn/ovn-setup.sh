@@ -75,7 +75,7 @@ ensure_token() {
 install_ovn
 install_ovn_kubernetes
 setup_ovn /data/cluster/master
-ensure_token
+ensure_token /data/cluster/master
 
 systemctl daemon-reload
 systemctl start ovn-kubernetes-master
