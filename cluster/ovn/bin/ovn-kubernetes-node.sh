@@ -31,7 +31,7 @@ cacert=${config_dir}/ca.crt
 EOF
 
   local host
-  host="$(hostname)-node"
+  host="$(hostname)"
 
   local node_config="${config_dir}/node-config.yaml"
   local master_config="${master_dir}/master-config.yaml"
